@@ -40,9 +40,7 @@ public class GameScreen extends Screen {
 	public void render() {
 		spriteBatch.begin();
 		World.render();
-		//GuideLines.render();
-		String FPS = "FPS "+ Gdx.graphics.getFramesPerSecond();
-		drawString(FPS, 160 - FPS.length() * 3, 140 - 3);
+		GuideLines.render(this);
 		spriteBatch.end();	
 		DYNAMICS.update();
 	}
@@ -67,24 +65,24 @@ public class GameScreen extends Screen {
 		
 		float a = Human.speed;
 		
-		if (input.buttons[Input.humanDOWN]){
-			World.humans.first().vel=new Point2D.Float(0, -1*a);
-		}
-		if (input.buttons[Input.humanUP]){
-			World.humans.first().vel=new Point2D.Float(0, +1*a);
-		}
-		if (input.buttons[Input.humanLEFT]){
-			World.humans.first().vel=new Point2D.Float(-1*a, 0);
-		}
-		if (input.buttons[Input.humanRIGHT]){
-			World.humans.first().vel=new Point2D.Float(1*a, 0);
-		}
-//		if (Gdx.input.isTouched() && World.humans.first().toDoList.size==0){
-//			World.humans.first().toDoList.add(new GetTarget(new Point2D.Float(input.mouseX,input.mouseY),false));			
+//		if (input.buttons[Input.humanDOWN]){
+//			World.humans.first().vel=new Point2D.Float(0, -1*a);
 //		}
-		if (input.noAction() && World.humans.first().toDoList.size==0){
-			World.humans.first().vel=new Point2D.Float(0,0);
-		}		
+//		if (input.buttons[Input.humanUP]){
+//			World.humans.first().vel=new Point2D.Float(0, +1*a);
+//		}
+//		if (input.buttons[Input.humanLEFT]){
+//			World.humans.first().vel=new Point2D.Float(-1*a, 0);
+//		}
+//		if (input.buttons[Input.humanRIGHT]){
+//			World.humans.first().vel=new Point2D.Float(1*a, 0);
+//		}
+//		if (Gdx.input.isTouched() && World.humans.first().toDoList.size==0){
+//			World.humans.first().toDoList.add(new GetTarget(new Point2D.Float(Input.mouseX,Input.mouseY),false));			
+//		}
+//		if (input.noAction() && World.humans.first().toDoList.size==0){
+//			World.humans.first().vel=new Point2D.Float(0,0);
+//		}		
 	}	
 	public static Point2D.Float screenPosToWorldCoords(Point2D.Float screenPos){
 		float x,y;

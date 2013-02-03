@@ -43,16 +43,24 @@ public class GetTarget extends Action{
 				return;
 			}	
 			if((actor.isBlocked  || (World.OutofBounds(Target) || World.cells.get(Cell.getIndex(Target.x, Target.y)).isOccupied))){//blocked
+				
+				if(actor.toDoList.size>=2){
+					if(actor.toDoList.get(1).isTrying){						
+						actor.toDoList.get(1).isDone=true;					
+					}
+				}
+
 				Gdx.app.log("REMOVED", "> " + " <");
 				isDone=true;			
+				
 				return;
 			}
-//			if(isWaiting){
-//				actor.toDoList.insert(0,new GetTarget(Anywhere(actor),true));		
-//				isWaiting=false;
-//				isExecuting=false;
-//				return;
-//			}
+			if(isWaiting){
+				actor.toDoList.insert(0,new GetTarget(Anywhere(actor),true));		
+				isWaiting=false;
+				isExecuting=false;
+				return;
+			}
 		}
 	}
 	
@@ -79,9 +87,10 @@ public class GetTarget extends Action{
 			}	
 			isWaiting=true;
 		}
-		else{
+		else{//EXPLORING
+			
 			if(vectorTo.x==0||vectorTo.y==0){
-				actor.vel = new Point2D.Float(getDirectionOf(vectorTo).x*speed,getDirectionOf(vectorTo).y*speed);
+				actor.vel = new Point2D.Float(getDirectionOf(vectorTo).x*speed,getDirectionOf(vectorTo).y*speed);				
 			}
 			else{
 				if(random.nextFloat()>0.5){
