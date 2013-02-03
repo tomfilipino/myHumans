@@ -17,7 +17,7 @@ public class World {
 	public static final int LAYERS = 2;
 	public static final int WIDTH = 100;
 	public static final int HEIGHT = 100;
-	private static final int Nhumans = 3;
+	private static final int Nhumans = 30;
 	
 	public static BASE base;
 	
@@ -38,6 +38,8 @@ public class World {
 	
 	//static ShapeRenderer terrain;
 	static Pixmap terrain;
+	
+	private static Random randomnumber = new Random();	
 
 	
 	//METHODS
@@ -46,7 +48,7 @@ public class World {
 	
 	public static void create () {
 		float r;
-		Random randomnumber = new Random();		
+	
 		humans = new Array<Human>(0);
 		cells = new Array<Cell>(0);
 		resources = new Array<Resource>(0);
@@ -57,79 +59,8 @@ public class World {
 			humans.add(new Human(new Point2D.Float(0,0),new Point2D.Float(0, 0),new Point2D.Float(0, 0),humans.size-1));
 		}
 
-		//cells.add(new Cell(0,0,"grass"));
-		
-		for(int j=-HEIGHT/2;j<=HEIGHT/2;j++){
-			for(int i=-WIDTH/2;i<=WIDTH/2;i++){
-				cells.add(new Cell(i,j,"grass"));
-				resources.add(new Resource(i,j,"empty"));
-			}
-		}
-		
-		for(int j=-HEIGHT/2;j<=HEIGHT/2;j++){
-			for(int i=-WIDTH/2;i<=WIDTH/2;i++){
-//				if(i*i + j*j >= 100 && i*i + j*j <= 200 ){
-//					cells.get(Resource.getIndex(i, j)).setType("dirt");
-//					resources.get(Resource.getIndex(i, j)).setType("tree");
-//				}	
-				
-				if (randomnumber.nextFloat()<0.025f)	{
-					resources.get(Resource.getIndex(i,j)).setType("tree");
-					
-				}
-				
-//				if(i*i + j*j >= 400 && i*i + j*j <= 440 ){
-//					cells.get(Resource.getIndex(i, j)).setType("sand");
-//					resources.get(Resource.getIndex(i, j)).setType("tree");
-//				}
-			}
-		}
-		
-	
-		
-//		for(int i=0;i<resources.size;i++){
-//			resources.get(i).GenerativeSpread();				
-//		}
 
-
-//		for(int j=-HEIGHT/2;j<=HEIGHT/2;j++){
-//			for(int i=-WIDTH/2;i<=WIDTH/2;i++){	
-//				r=randomnumber.nextFloat();
-//				if(r<0.0000)
-//					cells.add(new Cell(i,j,"sand"));					
-//				else if(r<=0.999)
-//					cells.add(new Cell(i,j,"grass"));
-//				else{
-//					cells.add(new Cell(i,j,"dirt"));					
-//				}
-//				r=randomnumber.nextFloat();
-//				if(r<0.001){
-//					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-//					resources.add(new Resource(i,j,"quartz"));
-//				}
-//				else if (r<0.002){
-//					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-//					resources.add(new Resource(i,j,"tree"));
-//				}
-//				else{
-//					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-//					resources.add(new Resource(i,j,"empty"));
-//				}
-//			}
-//		}
-//		
-//
-//		//procedural spread
-//		for(int t=0;t<30;t++){
-//			for(int i=0;i<cells.size;i++){
-//				cells.get(i).GenerativeSpread();				
-//			}
-//		}
-//		for(int t=0;t<50;t++){
-//			for(int i=0;i<resources.size;i++){
-//				resources.get(i).GenerativeSpread();				
-//			}
-//		}
+		setNaturalWorld();
 		
 		
 		cells.shrink();
@@ -219,7 +150,50 @@ public class World {
 		}
 	}
 	
-	public static void renderDepthQueue(){
+	private static void setNaturalWorld(){
+		
+		float r;
+		
+		for(int j=-HEIGHT/2;j<=HEIGHT/2;j++){
+			for(int i=-WIDTH/2;i<=WIDTH/2;i++){	
+				r=randomnumber.nextFloat();
+				if(r<0.0000)
+					cells.add(new Cell(i,j,"sand"));					
+				else if(r<=0.999)
+					cells.add(new Cell(i,j,"grass"));
+				else{
+					cells.add(new Cell(i,j,"dirt"));					
+				}
+				r=randomnumber.nextFloat();
+				if(r<0.001){
+					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
+					resources.add(new Resource(i,j,"quartz"));
+				}
+				else if (r<0.002){
+					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
+					resources.add(new Resource(i,j,"tree"));
+				}
+				else{
+					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
+					resources.add(new Resource(i,j,"empty"));
+				}
+			}
+		}
+		//procedural spread
+		for(int t=0;t<30;t++){
+			for(int i=0;i<cells.size;i++){
+				cells.get(i).GenerativeSpread();				
+			}
+		}
+		for(int t=0;t<50;t++){
+			for(int i=0;i<resources.size;i++){
+				resources.get(i).GenerativeSpread();				
+			}
+		}		
+	}
+	
+	
+	private static void renderDepthQueue(){
 		depthQueue.clear();
 		for(int i=0;i<DisplayableResources.size;i++){
 			depthQueue.add(DisplayableResources.get(i));

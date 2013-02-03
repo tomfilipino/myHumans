@@ -28,6 +28,7 @@ public class EXTRACT extends Action {
 		base = b;
 		hasResource=true;
 		active = new Point2D.Float();
+		isTrying=false;
 	}
 	
 

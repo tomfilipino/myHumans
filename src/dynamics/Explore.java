@@ -22,6 +22,7 @@ public class Explore extends Action {
 		isDone=false;
 		isExecuting=false;
 		isWaiting=false;
+		isTrying=false;
 	}
 	
 	
@@ -33,8 +34,9 @@ public class Explore extends Action {
 		
 		if(actor.foundResource){	//RESOURCE FOUND!
 			Gdx.app.log("FOUND", "> " + " <");		
-			actor.stop();
+			//actor.stop();
 			isDone=true;
+			actor.foundResource=false;
 			//INSERT NEXT ACTION: EXTRACT
 			actor.toDoList.insert(1, new EXTRACT(new Point2D.Float(0, 0),actor.extractTarget));
 		}
