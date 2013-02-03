@@ -18,7 +18,7 @@ public class Human extends Entity {
 	public static int width = 8;
 	public static int height = 16;
 	
-	public static float speed = 0.1f;
+	public static float speed = 0.3f;
 	
 	int id;
 
@@ -153,6 +153,12 @@ public class Human extends Entity {
 			this.toDoList.add(new Explore());
 			stop();
 		}
+		for(int i=0;i<toDoList.size;i++){
+			if(toDoList.get(i).isDone){
+				toDoList.removeIndex(i);
+			}
+		}
+		toDoList.shrink();
 		
 	}
 	
