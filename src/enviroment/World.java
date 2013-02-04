@@ -1,4 +1,7 @@
 package enviroment;
+import game.Art;
+import graphics.GRAPHICS;
+
 import java.awt.geom.Point2D;
 
 import java.util.Comparator;
@@ -8,6 +11,7 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.SpriteCache;
 
 //import dynamics.Explore;
 
@@ -15,9 +19,9 @@ import com.badlogic.gdx.graphics.Pixmap;
 public class World {
 	
 	public static final int LAYERS = 2;
-	public static final int WIDTH = 100;
-	public static final int HEIGHT = 100;
-	private static final int Nhumans = 30;
+	public static final int WIDTH = 30;
+	public static final int HEIGHT = 30;
+	private static final int Nhumans = 0;
 	
 	public static BASE base;
 	
@@ -35,9 +39,7 @@ public class World {
 	
 	//render
 	public static Array<Entity> depthQueue;
-	
-	//static ShapeRenderer terrain;
-	static Pixmap terrain;
+	public static SpriteCache terrain = new SpriteCache(); 
 	
 	private static Random randomnumber = new Random();	
 
@@ -88,16 +90,19 @@ public class World {
 	
 	//RENDER WORLD
 	public static void render () {	
+				
+		//MAIN BACKGROUND				
+//		for(int i=0;i<DisplayableCells.size;i++){			
+//			DisplayableCells.get(i).render();
+//		}
 		
-		//MAIN BACKGROUND
-		for(int x=0;x<DisplayableCells.size;x++){
-			DisplayableCells.get(x).render();
-		}
+		//GRAPHICS.RENDERcache();
+
+
 		
 		//Gdx.app.log("dspsize", "> " + DisplayableCells.size + " <");
 		
-		//DEPTH QUEUE
-		
+		//DEPTH QUEUE: HUMANS AND RESOURCES		
 		renderDepthQueue();
 
 	}
@@ -191,8 +196,6 @@ public class World {
 			}
 		}		
 	}
-	
-	
 	private static void renderDepthQueue(){
 		depthQueue.clear();
 		for(int i=0;i<DisplayableResources.size;i++){
@@ -252,6 +255,14 @@ public class World {
 				}				
 			}
 		}
+		
+		GRAPHICS.CLEARcache();
+		for(int i=0;i<DisplayableCells.size;i++){			
+			GRAPHICS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
+		}
+		GRAPHICS.CLOSEcache();
+
+		
 	}
 	
 	public static boolean OutofBounds(Point2D.Float v){

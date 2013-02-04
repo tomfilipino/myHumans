@@ -1,8 +1,8 @@
 package game;
 
-import enviroment.Camera;
 import enviroment.Human;
 import enviroment.World;
+import game.screen.Camera;
 import game.screen.GameScreen;
 
 import java.awt.geom.Point2D;

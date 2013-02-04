@@ -1,7 +1,7 @@
-package enviroment;
+package game.screen;
 
+import enviroment.World;
 import game.Game;
-import game.screen.Screen;
 
 import java.awt.geom.Point2D;
 
