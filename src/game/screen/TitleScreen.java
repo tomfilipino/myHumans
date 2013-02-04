@@ -2,7 +2,6 @@ package game.screen;
 
 import game.Art;
 import game.Input;
-import enviroment.Camera;
 import enviroment.World;
 import game.screen.GameScreen;
 import game.screen.Screen;
