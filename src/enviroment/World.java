@@ -1,6 +1,6 @@
 package enviroment;
 import game.Art;
-import graphics.GRAPHICS;
+import graphics.CHUNKS;
 
 import java.awt.geom.Point2D;
 
@@ -256,11 +256,11 @@ public class World {
 			}
 		}
 		
-		GRAPHICS.CLEARcache();
+		CHUNKS.CLEARcache();
 		for(int i=0;i<DisplayableCells.size;i++){			
-			GRAPHICS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
+			CHUNKS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
 		}
-		GRAPHICS.CLOSEcache();
+		CHUNKS.CLOSEcache();
 
 		
 	}

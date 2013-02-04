@@ -3,7 +3,7 @@ package game.screen;
 import game.Art;
 import game.Game;
 import game.Input;
-import graphics.GRAPHICS;
+import graphics.CHUNKS;
 import enviroment.Cell;
 import enviroment.Human;
 import enviroment.World;
@@ -38,7 +38,7 @@ public class GameScreen extends Screen {
 	
 	@Override
 	public void render() {
-		GRAPHICS.RENDERcache();
+		CHUNKS.RENDERcache();
 		spriteBatch.begin();
 		World.render();
 		GuideLines.render(this);

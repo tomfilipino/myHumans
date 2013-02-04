@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.utils.Array;
 
-public class GRAPHICS {
+public class CHUNKS {
 	
 	private static int i;
 	private static int index;
