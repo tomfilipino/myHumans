@@ -1,8 +1,8 @@
 package game.screen;
 
-import game.Art;
 import game.Game;
 import game.Input;
+import graphics.Art;
 import graphics.CHUNKS;
 import enviroment.Cell;
 import enviroment.Human;
@@ -40,7 +40,7 @@ public class GameScreen extends Screen {
 	public void render() {
 		CHUNKS.RENDERcache();
 		spriteBatch.begin();
-		World.render();
+		//World.render();
 		GuideLines.render(this);
 		spriteBatch.end();	
 		DYNAMICS.update();

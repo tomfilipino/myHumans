@@ -4,9 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import game.Art;
 import game.Game;
 import game.screen.*;
+import graphics.Art;
 
 import java.util.Random;
 import java.awt.geom.Point2D;

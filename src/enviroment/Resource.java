@@ -1,7 +1,7 @@
 package enviroment;
 
-import game.Art;
 import game.screen.Screen;
+import graphics.Art;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Float;
@@ -9,6 +9,7 @@ import java.util.Random;
 
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Resource extends Entity{
 
@@ -78,14 +79,19 @@ public class Resource extends Entity{
 			return new Point2D.Float((pos.x-Resource.getSize(Type).x/2+0.5f) + pos.y*(Cell.width/2) + pos.x*(float)(Cell.width/2-1),  -Human.height +2 + (pos.y - Resource.getSize(Type).y/2 - Cell.height -1) - pos.y*(Cell.height/2+1) + pos.x*(Cell.height/2));
 		return new Point2D.Float(0, 0);
 	}
-
-	@Override
-	public void render() {
+	
+	
+	public TextureRegion getTexture() {
 		//Gdx.app.log("depth", "> " + "inside!" + " <");
-		if(!Type.contentEquals("empty") && Type.contentEquals("quartz"))
-			Screen.spriteBatch.draw(Art.quartz[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
-		if(!Type.contentEquals("empty") && Type.contentEquals("tree"))
-			Screen.spriteBatch.draw(Art.tree[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
+		if(!Type.contentEquals("empty") && Type.contentEquals("quartz")){
+			return Art.quartz[state][TextureType];
+			//Screen.spriteBatch.draw(Art.quartz[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
+		}
+		if(!Type.contentEquals("empty") && Type.contentEquals("tree")){
+			return Art.tree[state][TextureType];
+			//Screen.spriteBatch.draw(Art.tree[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
+		}
+		return null;
 	}
 	
 	public int getStyles(String type){
@@ -119,6 +125,12 @@ public class Resource extends Entity{
 			return 0f;
 		}
 		return 0.1f;
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

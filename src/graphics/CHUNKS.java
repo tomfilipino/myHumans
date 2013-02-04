@@ -25,7 +25,7 @@ public class CHUNKS {
 		}
 		chunks.get(index).add(T,x,y);
 		i++;
-		if(i==100){
+		if(i==1000){
 			ENDcache();
 			i=0;
 			index++;
