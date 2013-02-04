@@ -8,7 +8,7 @@ public class ImgData {
 	
 	public class Resources{
 		public class quartz{
-			String imgPath = "ssss";  
+			String imgPath = "data/";  
 			Point2D.Float size = new Point2D.Float(0, 0);
 			int Nstyles = 2;
 			int Nstates = 2;					
