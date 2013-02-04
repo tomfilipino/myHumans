@@ -1,9 +1,9 @@
 package game.screen;
 
-import game.Art;
 import game.Game;
 import game.Input;
 import game.screen.Screen;
+import graphics.Art;
 
 import java.util.Random;
 

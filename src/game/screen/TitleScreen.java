@@ -1,10 +1,10 @@
 package game.screen;
 
-import game.Art;
 import game.Input;
 import enviroment.World;
 import game.screen.GameScreen;
 import game.screen.Screen;
+import graphics.Art;
 
 import java.awt.geom.Point2D;
 

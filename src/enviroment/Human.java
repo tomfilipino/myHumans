@@ -1,7 +1,7 @@
 package enviroment;
 
-import game.Art;
 import game.screen.Screen;
+import graphics.Art;
 
 import java.awt.geom.Point2D;
 

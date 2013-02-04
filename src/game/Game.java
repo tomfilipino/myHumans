@@ -1,10 +1,10 @@
 package game;
 
-import game.Art;
 import enviroment.World;
 import game.screen.GameScreen;
 import game.screen.Screen;
 import game.screen.TitleScreen;
+import graphics.Art;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;

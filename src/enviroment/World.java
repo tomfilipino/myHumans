@@ -1,5 +1,5 @@
 package enviroment;
-import game.Art;
+import graphics.Art;
 import graphics.CHUNKS;
 
 import java.awt.geom.Point2D;
@@ -92,9 +92,9 @@ public class World {
 	public static void render () {	
 				
 		//MAIN BACKGROUND				
-//		for(int i=0;i<DisplayableCells.size;i++){			
-//			DisplayableCells.get(i).render();
-//		}
+		for(int i=0;i<DisplayableCells.size;i++){			
+			DisplayableCells.get(i).render();
+		}
 		
 		//GRAPHICS.RENDERcache();
 
@@ -103,7 +103,7 @@ public class World {
 		//Gdx.app.log("dspsize", "> " + DisplayableCells.size + " <");
 		
 		//DEPTH QUEUE: HUMANS AND RESOURCES		
-		renderDepthQueue();
+		//renderDepthQueue();
 
 	}
 	
@@ -258,8 +258,11 @@ public class World {
 		
 		CHUNKS.CLEARcache();
 		for(int i=0;i<DisplayableCells.size;i++){			
-			CHUNKS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
+			CHUNKS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);			
 		}
+//		for(int i=0;i<DisplayableResources.size;i++){			
+//			CHUNKS.ADDcache(DisplayableResources.get(i).getTexture(), DisplayableResources.get(i).getScreenPos().x,DisplayableResources.get(i).getScreenPos().y);			
+//		}
 		CHUNKS.CLOSEcache();
 
 		
