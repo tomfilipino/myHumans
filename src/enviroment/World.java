@@ -19,8 +19,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteCache;
 public class World {
 	
 	public static final int LAYERS = 2;
-	public static final int WIDTH = 30;
-	public static final int HEIGHT = 30;
+	public static final int WIDTH = 200;
+	public static final int HEIGHT = 200;
 	private static final int Nhumans = 0;
 	
 	public static BASE base;
