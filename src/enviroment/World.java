@@ -7,6 +7,8 @@ import java.awt.geom.Point2D;
 import java.util.Comparator;
 import java.util.Random;
 
+import procedural.WorldGeneration;
+
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
@@ -19,8 +21,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteCache;
 public class World {
 	
 	public static final int LAYERS = 2;
-	public static final int WIDTH = 400;
-	public static final int HEIGHT = 400;
+	public static final int WIDTH = 10;
+	public static final int HEIGHT = 10;
 	private static final int Nhumans = 0;
 	
 	public static BASE base;
@@ -41,7 +43,7 @@ public class World {
 	public static Array<Entity> depthQueue;
 	public static SpriteCache terrain = new SpriteCache(); 
 	
-	private static Random randomnumber = new Random();	
+	public static Random randomnumber = new Random();	
 
 	
 	//METHODS
@@ -62,7 +64,7 @@ public class World {
 		}
 
 
-		setNaturalWorld();
+		WorldGeneration.setTestWorld();
 		
 		
 		cells.shrink();
@@ -103,7 +105,7 @@ public class World {
 		//Gdx.app.log("dspsize", "> " + DisplayableCells.size + " <");
 		
 		//DEPTH QUEUE: HUMANS AND RESOURCES		
-		//renderDepthQueue();
+		renderDepthQueue();
 
 	}
 	
@@ -155,47 +157,7 @@ public class World {
 		}
 	}
 	
-	private static void setNaturalWorld(){
-		
-		float r;
-		
-		for(int j=-HEIGHT/2;j<=HEIGHT/2;j++){
-			for(int i=-WIDTH/2;i<=WIDTH/2;i++){	
-				r=randomnumber.nextFloat();
-				if(r<0.0000)
-					cells.add(new Cell(i,j,"sand"));					
-				else if(r<=0.999)
-					cells.add(new Cell(i,j,"grass"));
-				else{
-					cells.add(new Cell(i,j,"dirt"));					
-				}
-				r=randomnumber.nextFloat();
-				if(r<0.001){
-					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-					resources.add(new Resource(i,j,"quartz"));
-				}
-				else if (r<0.002){
-					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-					resources.add(new Resource(i,j,"tree"));
-				}
-				else{
-					if(!cells.get(Cell.getIndex(i, j)).isOccupied)
-					resources.add(new Resource(i,j,"empty"));
-				}
-			}
-		}
-		//procedural spread
-		for(int t=0;t<30;t++){
-			for(int i=0;i<cells.size;i++){
-				cells.get(i).GenerativeSpread();				
-			}
-		}
-		for(int t=0;t<50;t++){
-			for(int i=0;i<resources.size;i++){
-				resources.get(i).GenerativeSpread();				
-			}
-		}		
-	}
+	
 	private static void renderDepthQueue(){
 		depthQueue.clear();
 		for(int i=0;i<DisplayableResources.size;i++){
@@ -255,6 +217,7 @@ public class World {
 				}				
 			}
 		}
+
 		
 		CHUNKS.CLEARcache();
 		for(int i=0;i<DisplayableCells.size;i++){			

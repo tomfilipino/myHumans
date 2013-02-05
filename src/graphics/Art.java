@@ -23,6 +23,7 @@ public class Art {
 	public static TextureRegion[][] quartz; //style and state
 	public static TextureRegion[][] tree;
 	public static TextureRegion[] grass;
+	public static Pixmap[] pgrass;
 	public static TextureRegion[] sand;
 	public static TextureRegion[] dirt;
 	
@@ -34,6 +35,8 @@ public class Art {
 	//GENERATION OF TEXTURE FOR CELLS
 	public static void GenerateTextures(){
 		grass = new TextureRegion[Cell.styles];
+		pgrass = new Pixmap[Cell.styles];
+		
 		sand = new TextureRegion[Cell.styles];
 		dirt = new TextureRegion[Cell.styles];
 				
@@ -49,6 +52,7 @@ public class Art {
 					}
 				}
 			}
+			pgrass[m] = pixmap;
 			grass[m] = new TextureRegion(new Texture(pixmap),Cell.width,Cell.height);
 			pixmap.fill();
 		}

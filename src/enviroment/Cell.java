@@ -23,7 +23,7 @@ public class Cell extends Entity {
 	public static int styles=20;
 	
 	
-	int TextureType;
+	public int TextureType;
 	public boolean isOccupied;
 	
 	public static int getIndex(float x,float y){
