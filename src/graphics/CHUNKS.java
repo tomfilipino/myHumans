@@ -1,9 +1,13 @@
 package graphics;
 
+import enviroment.Cell;
 import game.screen.Screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Pixmap.Format;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteCache;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Matrix4;
@@ -13,6 +17,9 @@ public class CHUNKS {
 	
 	private static int i;
 	private static int index;
+	private static int bufferSIZE = 128;
+	private static int cacheSIZE=1000;
+//	public static Pixmap buffer = new Pixmap(bufferSIZE,bufferSIZE,Format.RGBA4444);
 	public static Array<SpriteCache> chunks = new Array<SpriteCache>(0);
 	public static Array<Integer> cacheID = new Array<Integer>(0);
 	private static Matrix4 projection = Screen.spriteBatch.getProjectionMatrix();	
@@ -25,7 +32,7 @@ public class CHUNKS {
 		}
 		chunks.get(index).add(T,x,y);
 		i++;
-		if(i==1000){
+		if(i==cacheSIZE){
 			ENDcache();
 			i=0;
 			index++;
