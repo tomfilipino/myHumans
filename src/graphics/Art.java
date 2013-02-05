@@ -38,7 +38,7 @@ public class Art {
 		dirt = new TextureRegion[Cell.styles];
 				
 		Random random = new Random();
-		Pixmap pixmap = new Pixmap(32,32,Pixmap.Format.RGBA8888);
+		Pixmap pixmap = new Pixmap(32,32,Pixmap.Format.RGBA4444);
 		pixmap.setColor(Color.rgba8888(0, 0, 0, 0));
 		pixmap.fill();
 		for(int m=0;m<Cell.styles;m++){				
