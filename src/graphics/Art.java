@@ -22,7 +22,10 @@ public class Art {
 	public static TextureRegion[][] humanGIF; //facing and step
 	public static TextureRegion[][] quartz; //style and state
 	public static TextureRegion[][] tree;
+	
 	public static TextureRegion[] grass;
+	public static Pixmap[] Pgrass;
+	
 	public static TextureRegion[] sand;
 	public static TextureRegion[] dirt;
 	
@@ -34,8 +37,11 @@ public class Art {
 	//GENERATION OF TEXTURE FOR CELLS
 	public static void GenerateTextures(){
 		grass = new TextureRegion[Cell.styles];
+		Pgrass = new Pixmap[Cell.styles];
+		
 		sand = new TextureRegion[Cell.styles];
 		dirt = new TextureRegion[Cell.styles];
+		
 				
 		Random random = new Random();
 		Pixmap pixmap = new Pixmap(32,32,Pixmap.Format.RGBA4444);
@@ -49,6 +55,9 @@ public class Art {
 					}
 				}
 			}
+			Pgrass[m] = new Pixmap(32,32,Pixmap.Format.RGBA4444);
+			Pgrass[m] = pixmap;
+			
 			grass[m] = new TextureRegion(new Texture(pixmap),Cell.width,Cell.height);
 			pixmap.fill();
 		}

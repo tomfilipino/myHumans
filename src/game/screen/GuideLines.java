@@ -20,7 +20,7 @@ public class GuideLines{
 		String FPS = "FPS "+ Gdx.graphics.getFramesPerSecond();
 		screen.drawString(FPS, Screen.RIGHT - 100 - FPS.length()*3, Screen.BOTTOM - 50);
 		screen.drawString("draw calls " + World.DisplayableCells.size, Screen.RIGHT - 100 - FPS.length()*3, Screen.BOTTOM - 40);
-		screen.drawString("CHUNKS " + CHUNKS.chunks.size, Screen.RIGHT - 100 - FPS.length()*3, Screen.BOTTOM - 30);
+		//screen.drawString("CHUNKS " + CHUNKS.chunks.size, Screen.RIGHT - 100 - FPS.length()*3, Screen.BOTTOM - 30);
 	}
 	
 	

@@ -256,14 +256,14 @@ public class World {
 			}
 		}
 		
-		CHUNKS.CLEARcache();
-		for(int i=0;i<DisplayableCells.size;i++){			
-			CHUNKS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
-		}
-//		for(int i=0;i<DisplayableResources.size;i++){			
-//			CHUNKS.ADDcache(DisplayableResources.get(i).getTexture(), DisplayableResources.get(i).getScreenPos().x,DisplayableResources.get(i).getScreenPos().y);			
+//		CHUNKS.CLEARcache();
+//		for(int i=0;i<DisplayableCells.size;i++){			
+//			CHUNKS.ADDcache(Art.getTexture(DisplayableCells.get(i).Type, DisplayableCells.get(i).TextureType), DisplayableCells.get(i).getScreenPos().x,DisplayableCells.get(i).getScreenPos().y);
 //		}
-		CHUNKS.CLOSEcache();
+////		for(int i=0;i<DisplayableResources.size;i++){			
+////			CHUNKS.ADDcache(DisplayableResources.get(i).getTexture(), DisplayableResources.get(i).getScreenPos().x,DisplayableResources.get(i).getScreenPos().y);			
+////		}
+//		CHUNKS.CLOSEcache();
 
 		
 	}

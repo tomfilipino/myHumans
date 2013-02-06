@@ -38,7 +38,7 @@ public class GameScreen extends Screen {
 	
 	@Override
 	public void render() {
-		CHUNKS.RENDERcache();
+		//CHUNKS.RENDERcache();
 		spriteBatch.begin();
 		//World.render();
 		GuideLines.render(this);
