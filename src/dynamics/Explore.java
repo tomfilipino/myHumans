@@ -30,10 +30,10 @@ public class Explore extends Action {
 
 	
 	public void getStatus(Human actor) {
-		Gdx.app.log("EXPLORE", "> " + " <");
+		//Gdx.app.log("EXPLORE", "> " + " <");
 		
 		if(actor.foundResource){	//RESOURCE FOUND!
-			Gdx.app.log("FOUND", "> " + " <");		
+			//Gdx.app.log("FOUND", "> " + " <");		
 			//actor.stop();
 			isDone=true;
 			actor.foundResource=false;

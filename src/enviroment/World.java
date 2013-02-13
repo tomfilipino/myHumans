@@ -1,4 +1,5 @@
 package enviroment;
+import game.screen.Camera;
 import graphics.Art;
 import graphics.CHUNKS;
 
@@ -23,7 +24,7 @@ public class World {
 	public static final int LAYERS = 2;
 	public static final int WIDTH = 100;
 	public static final int HEIGHT = 100;
-	private static final int Nhumans = 20;
+	private static final int Nhumans = 10;
 	
 	public static BASE base;
 	
@@ -92,7 +93,9 @@ public class World {
 	
 	
 	//RENDER WORLD
-	public static void render () {	
+	public static void render () {
+		
+		//cells.get(Cell.getIndex(Camera.getWorldPosition().x, Camera.getWorldPosition().y)).setType("dirt");
 				
 		//MAIN BACKGROUND				
 		for(int i=0;i<DisplayableCells.size;i++){			

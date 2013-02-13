@@ -41,7 +41,11 @@ public class GameScreen extends Screen {
 		CHUNKS.RENDERcache();
 		spriteBatch.begin();
 		World.render();
+		
+		//over all
 		GuideLines.render(this);
+		
+		
 		spriteBatch.end();	
 		DYNAMICS.update();
 	}
@@ -58,8 +62,9 @@ public class GameScreen extends Screen {
 			Camera.move("DOWN");}	
 		
 		if (input.buttons[Input.CENTERVIEW]){
-			//Camera.moveto(World.cells.get(Cell.getindex(0, 0)).pos);
-			Camera.moveto(new Point2D.Float(0,0));
+			
+			//Camera.moveto(World.cells.get(Cell.getIndex(0, 0)).getScreenPos());
+			Camera.moveto(new Point2D.Float(0, 0));
 		}
 		
 		//human movements (for development) AI to be created for many

@@ -1,5 +1,6 @@
 package game.screen;
 
+import enviroment.Cell;
 import enviroment.World;
 import game.Game;
 
@@ -61,5 +62,12 @@ public class Camera {
 			newprojection.setToOrtho(Screen.LEFT, Screen.RIGHT, Screen.BOTTOM, Screen.TOP, Screen.NEAR, Screen.FAR);
 			Screen.spriteBatch.setProjectionMatrix(newprojection);
 			World.getDisplayables("all");
+		}
+		
+		public static Point2D.Float getScreenPosition(){
+			return new Point2D.Float(Screen.LEFT + Game.GAME_WIDTH/2, Screen.BOTTOM - Game.GAME_HEIGHT/2);
+		}
+		public static Point2D.Float getWorldPosition(){
+			return GameScreen.screenPosToWorldCoords(new Point2D.Float(getScreenPosition().x/Cell.width + Game.GAME_WIDTH, getScreenPosition().y/Cell.height + Game.GAME_HEIGHT));
 		}
 }

@@ -50,7 +50,7 @@ public class GetTarget extends Action{
 					}
 				}
 
-				Gdx.app.log("REMOVED", "> " + " <");
+				//Gdx.app.log("REMOVED", "> " + " <");
 				isDone=true;			
 				
 				return;

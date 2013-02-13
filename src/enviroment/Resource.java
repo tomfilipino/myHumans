@@ -119,7 +119,7 @@ public class Resource extends Entity{
 
 	public float extract() {
 		quantity-=0.5f;
-		Gdx.app.log("QUANTITU", "> " + quantity +  " <");
+		//Gdx.app.log("QUANTITU", "> " + quantity +  " <");
 		if(quantity<=0f){
 			this.setType("empty");
 			return 0f;

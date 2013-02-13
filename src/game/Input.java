@@ -126,7 +126,8 @@ public class Input implements InputProcessor{
 		mouseX = Math.round(worldCoords.x);
 		mouseY = Math.round(worldCoords.y);
 		
-		//Gdx.app.log("mouse ", "> " + mouseX + "  " + mouseY + " <");
+		Gdx.app.log("mouse ", "> " + mouseX + "  " + mouseY + " <");
+		Gdx.app.log("mouse ", "> " + Gdx.input.getX() + "  " + Gdx.input.getY() + " <");
 		
 		return false;
 	}
@@ -138,13 +139,9 @@ public class Input implements InputProcessor{
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-//        GameScreen.camera.unproject(Camera.curr.set(x, y,0));
-//        if(!(Camera.last.x == -1 && Camera.last.y == -1 && Camera.last.z == -1)) {
-//        		GameScreen.camera.unproject(Camera.delta.set(Camera.last.x, Camera.last.y, 0));                 
-//                Camera.delta.sub(curr);
-//                GameScreen.camera.position.add(Camera.delta.x, Camera.delta.y, 0);
-//        }
-//        Camera.last.set(x, y, 0);
+				
+		Camera.moveto(new Point2D.Float(Camera.getScreenPosition().x-Gdx.input.getDeltaX()/3, Camera.getScreenPosition().y-Gdx.input.getDeltaY()/3));
+
         return false;
 	}
 

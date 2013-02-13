@@ -54,7 +54,7 @@ public class EXTRACT extends Action {
 	}
 	
 	public void execute(Human actor) {
-		Gdx.app.log("extract", "> " + " <");
+		//Gdx.app.log("extract", "> " + " <");
 		//call subAction
 		actor.toDoList.insert(0,new GetTarget(active,false));
 

@@ -7,8 +7,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class DesktopStarter {
 	
-	public static final int PIXEL_ASPECT_RATIO = 3;
-	public static final int SIZE = 100;
+	public static final int PIXEL_ASPECT_RATIO = 2;
+	public static final int SIZE = 50;
 	public static Point2D.Float SCALE =new Point2D.Float(16, 9);
 	
 	public static int windowWIDTH=(int)SCALE.x*SIZE;
