@@ -49,7 +49,7 @@ public class WorldGeneration {
 	public static void setTestWorld(){//for development
 		for(int j=-World.HEIGHT/2;j<=World.HEIGHT/2;j++){
 			for(int i=-World.WIDTH/2;i<=World.WIDTH/2;i++){	
-					World.cells.add(new Cell(i,j,"grass"));
+					World.cells.add(new Cell(i,j,"dirt"));
 					World.resources.add(new Resource(i,j,"empty"));
 			}
 		}

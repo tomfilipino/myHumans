@@ -14,7 +14,7 @@ import com.badlogic.gdx.graphics.GL10;
 
 public class Game implements ApplicationListener {
 	
-	public static final int SCREEN_SCALE = 1;
+	public static final int SCREEN_SCALE = DesktopStarter.PIXEL_ASPECT_RATIO;
 	public static final int GAME_WIDTH = DesktopStarter.windowWIDTH/SCREEN_SCALE;
 	public static final int GAME_HEIGHT = DesktopStarter.windowHEIGHT/SCREEN_SCALE;
 

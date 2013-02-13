@@ -26,6 +26,7 @@ public class Art {
 	public static Pixmap[] pgrass;
 	public static TextureRegion[] sand;
 	public static TextureRegion[] dirt;
+	public static TextureRegion[][] cells;
 	
 	//development
 	public static TextureRegion guidelines;
@@ -39,6 +40,8 @@ public class Art {
 		
 		sand = new TextureRegion[Cell.styles];
 		dirt = new TextureRegion[Cell.styles];
+		
+		cells = new TextureRegion[3][Cell.styles];
 				
 		Random random = new Random();
 		Pixmap pixmap = new Pixmap(32,32,Pixmap.Format.RGBA4444);
@@ -82,6 +85,24 @@ public class Art {
 			pixmap.fill();
 		}
 		pixmap.dispose();
+		
+		
+
+		for(int j=0;j<3;j++){
+			for(int i=0;i<Cell.styles;i++){
+				if(j==0){
+					cells[j][i] = grass[i];
+				}
+				if(j==1){
+					cells[j][i] = sand[i];
+				}
+				if(j==2){
+					cells[j][i] = dirt[i];
+				}
+			}
+		}
+		
+		
 	}
 	
 	public static void load () {
@@ -98,14 +119,26 @@ public class Art {
 	}
 	
 	public static TextureRegion getTexture(String type,int style){		
+//		if(type.contentEquals("grass")){
+//			return grass[style];					
+//		}
+//		if(type.contentEquals("sand")){
+//			return sand[style];
+//		}
+//		if(type.contentEquals("dirt")){
+//			return dirt[style];
+//		}
+//		else{
+//			return grass[style]; // implement error texture
+//		}
 		if(type.contentEquals("grass")){
-			return grass[style];					
+			return cells[0][style];					
 		}
 		if(type.contentEquals("sand")){
-			return sand[style];
+			return cells[1][style];
 		}
 		if(type.contentEquals("dirt")){
-			return dirt[style];
+			return cells[2][style];
 		}
 		else{
 			return grass[style]; // implement error texture

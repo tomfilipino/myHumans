@@ -40,7 +40,7 @@ public class GameScreen extends Screen {
 	public void render() {
 		CHUNKS.RENDERcache();
 		spriteBatch.begin();
-		//World.render();
+		World.render();
 		GuideLines.render(this);
 		spriteBatch.end();	
 		DYNAMICS.update();

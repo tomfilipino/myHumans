@@ -20,7 +20,7 @@ public class Cell extends Entity {
 	public static int height = 9;
 	public String Type;
 	
-	public static int styles=20;
+	public static int styles=4;
 	
 	
 	public int TextureType;

@@ -36,7 +36,7 @@ public class GetTarget extends Action{
 			execute(actor);
 		}
 		else{
-			if(actor.pos.distance(Target)<=0.5f){//completed!
+			if(actor.pos.distance(Target)<=0.1f){//completed!
 				actor.pos= new Point2D.Float(Target.x,Target.y);
 				isDone=true;
 				actor.stop();

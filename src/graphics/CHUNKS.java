@@ -60,7 +60,7 @@ public class CHUNKS {
 		index=0;
 		cacheID.clear();
 		for(int i=0;i<chunks.size;i++){
-			chunks.get(i).clear();
+			chunks.get(i).dispose();
 		}
 		chunks.clear();		
 		projection = Screen.spriteBatch.getProjectionMatrix();			

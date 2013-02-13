@@ -22,7 +22,10 @@ public class Camera {
 		
 		
 		public static void move(String action){
-			int displacement=10;
+			
+					
+			
+			int displacement=1;
 			
 			Matrix4 newprojection = Screen.spriteBatch.getProjectionMatrix();	
 

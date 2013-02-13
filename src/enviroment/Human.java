@@ -18,7 +18,7 @@ public class Human extends Entity {
 	public static int width = 8;
 	public static int height = 16;
 	
-	public static float speed = 0.3f;
+	public static float speed = 0.05f;
 	
 	int id;
 

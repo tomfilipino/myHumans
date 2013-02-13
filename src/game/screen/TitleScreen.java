@@ -31,7 +31,8 @@ public class TitleScreen extends Screen  {
 		time++; //
 		if (input.buttons[Input.SPACE] && !input.oldButtons[Input.SPACE]) {
 			//Sound.startgame.play();
-			World.create();			
+			World.create();
+			GuideLines.updateMinimap();
 			setScreen(new GameScreen());
 			//input.releaseAllKeys();
 		}

@@ -129,7 +129,14 @@ public class Resource extends Entity{
 
 	@Override
 	public void render() {
-		// TODO Auto-generated method stub
+		if(!Type.contentEquals("empty") && Type.contentEquals("quartz")){
+			//return Art.quartz[state][TextureType];
+			Screen.spriteBatch.draw(Art.quartz[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
+		}
+		if(!Type.contentEquals("empty") && Type.contentEquals("tree")){
+			//return Art.tree[state][TextureType];
+			Screen.spriteBatch.draw(Art.tree[state][TextureType],(float)getScreenPos().getX(),(float)getScreenPos().getY());
+		}
 		
 	}
 	

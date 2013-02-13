@@ -21,9 +21,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteCache;
 public class World {
 	
 	public static final int LAYERS = 2;
-	public static final int WIDTH = 10;
-	public static final int HEIGHT = 10;
-	private static final int Nhumans = 0;
+	public static final int WIDTH = 100;
+	public static final int HEIGHT = 100;
+	private static final int Nhumans = 20;
 	
 	public static BASE base;
 	
@@ -64,7 +64,8 @@ public class World {
 		}
 
 
-		WorldGeneration.setTestWorld();
+		//WorldGeneration.setTestWorld();
+		WorldGeneration.setNaturalWorld();
 		
 		
 		cells.shrink();
